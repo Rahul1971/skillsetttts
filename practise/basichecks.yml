@@ -1,6 +1,7 @@
 - name: "Install tomcat"
   hosts: all
-  #connection: local
+  connection: local
+  become: true
   tasks:
 
     - name: "Install tomcat"
