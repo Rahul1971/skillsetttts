@@ -1,13 +1,40 @@
-- name: "Install Nginix"
+- name: "Install Nginx"
   hosts: localhost
+  connection: local
   tasks:
-    - name: "Install Nginix"
-      shell: "dnf module install nginx:1.24 -y"
 
-    - name: "update yum"
+    - name: " check tomcat status"
+      shell: "dnf list installed |grep -i tomcat"
+      register: x
+
+    - name: "Print the status"
+      debug:
+        msg: "status is {{x.stdout}}"
+
+    - name: "Install tomcat"
       dnf:
-        name: "*"
-        state: latest
+       name: "tomcat"
+       state: latest
+
+    - name: "Start tomcat service"
+      service:
+        name: tomcat
+        state: started
+
+    - name: " check tomcat status"
+      shell: "dnf list installed |grep -i tomcat"
+      register: y
+
+    - name: "Print the status"
+      debug:
+        msg: "status is {{y.stdout}}"
+
+       #"dnf module install nginx:1.24 -y"
+
+   # - name: "update yum"
+   #   dnf:
+   #     name: "*"
+   #     state: latest
 
 
       #dnf:
