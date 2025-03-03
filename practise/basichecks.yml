@@ -10,7 +10,7 @@
       dnf:
         name: nginix
         state: installed
-        when: x.stdout != 0
+        #when: x.stdout != 0
 
     - name: "Start Nginix service"
       service:
