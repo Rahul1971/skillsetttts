@@ -3,8 +3,8 @@
   connection: local
   tasks:
 
-    - name: " check tomcat status"
-      shell: "rpm -qa |grep -i tomcat"
+    - name: " check nginx status"
+      shell: "rpm -qa |grep -i nginx"
       register: x
       ignore_errors: yes
       #failed_when: x.rc != 0 and x.stdout == ""
@@ -14,18 +14,18 @@
       debug:
         msg: "status is {{x.stdout}}"
 
-    - name: "Install tomcat"
+    - name: "Install nginx"
       dnf:
-       name: "tomcat"
+       name: "nginx"
        state: latest
 
-    - name: "Start tomcat service"
+    - name: "Start nginx service"
       service:
-        name: tomcat
+        name: nginx
         state: started
 
-    - name: " check tomcat status"
-      shell: "rpm -qa |grep -i tomcat"
+    - name: " check nginx status"
+      shell: "rpm -qa |grep -i nginx"
       register: y
 
     - name: "Print the status"
