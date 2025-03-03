@@ -5,20 +5,12 @@
   tasks:
 
       - name: "Create the file"
-        file:
-         path: "/tmp/testfile.txt"
-         state: touch
+        shell: "hostname"
+        register: x
 
-      - name: "Write content to the file"
-        copy:
-         content: "Hello world"
-         dest: "/tmp/testfile.txt"
-
-
-      - name: " to create the user"
-        user:
-         name: "patrol"
-         state: present
+      - name: "Print hostname"
+        debug:
+          msg: "Hostname is {{x}}"
 
 
 
