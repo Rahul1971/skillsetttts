@@ -4,9 +4,9 @@
   become: true
   tasks:
 
-    - name: "Install tomcat"
+    - name: "Install nginx"
       dnf:
-       name: "tomcat"
+       name: "nginx"
        state: installed
 
 
