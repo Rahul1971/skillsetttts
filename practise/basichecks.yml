@@ -6,13 +6,13 @@
 
       - name: "Create the file"
         file:
-        path: "/tmp/testfile.txt"
-        state: touch
+         path: "/tmp/testfile.txt"
+         state: touch
 
       - name: "Write content to the file"
         copy:
-        content: "Hello world"
-        dest: "/tmp/testfile.txt"
+         content: "Hello world"
+         dest: "/tmp/testfile.txt"
 
 
       - name: " to create the user"
