@@ -4,34 +4,31 @@
   become: true
   tasks:
 
-    - name: "Create a file with content"
-      hosts: localhost
-      tasks:
-        - name: "Create the file"
-          file:
-            path: "/tmp/testfile.txt"
-            state: touch
+      - name: "Create the file"
+        file:
+        path: "/tmp/testfile.txt"
+        state: touch
 
-        - name: "Write content to the file"
-          copy:
-            content: "Hello world"
-            dest: "/tmp/testfile.txt"
+      - name: "Write content to the file"
+        copy:
+        content: "Hello world"
+        dest: "/tmp/testfile.txt"
 
 
-    - name: " to create the user"
-      user:
-        name: "patrol"
-        state: present
+      - name: " to create the user"
+        user:
+         name: "patrol"
+         state: present
 
-    - name: " To download the file from web"
-      get_url:
-        url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=251646_7ed26d28139143f38c58992680c214a5
-        src: "/tmp/downloadfile.gz"
+      - name: " To download the file from web"
+        get_url:
+         url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=251646_7ed26d28139143f38c58992680c214a5
+         src: "/tmp/downloadfile.gz"
 
-    - name: "unarchive the file "
-      unarchive:
-        src: "/tmp/downloadfile.gz"
-        dest: "/tmp/download/file"
+      - name: "unarchive the file "
+        unarchive:
+         src: "/tmp/downloadfile.gz"
+         dest: "/tmp/download/file"
 
 
 
