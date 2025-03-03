@@ -1,22 +1,18 @@
-- name: "Install Ansible"
+- name: "Install Nginix"
   hosts: localhost
   connection: local
   tasks:
-    - name: "To check ansible installed or not"
-      shell: "rpm -qa |grep -i ansible|wc -l"
+    - name: "To check Nginix installed or not"
+      shell: "rpm -qa |grep -i nginix|wc -l"
       register: x
 
-    - name: "Install ansible"
+    - name: "Install Nginix"
       dnf:
-        name: ansible
+        name: nginix
         state: installed
         when: x.stdout != 0
 
-    - name: "Start ansible service"
+    - name: "Start Nginix service"
       service:
-        name: ansible
+        name: nginix
         state: installed
-
-
-
-
