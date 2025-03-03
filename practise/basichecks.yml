@@ -22,7 +22,7 @@
     - name: " unarchive the file
       unarchive:
         src: "/tmp/downloadfile.gz"
-        dest: "tmp/download/file"
+        dest: "/tmp/download/file"
 
 
 
