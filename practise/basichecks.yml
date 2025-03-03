@@ -1,5 +1,5 @@
 - name: "Install tomcat"
-  hosts: 172.31.91.246
+  hosts: [172.31.90.138, 172.31.81.5, 172.31.91.43]
   #connection: local
   become: true
   tasks:
@@ -20,10 +20,6 @@
          name: "patrol"
          state: present
 
-      - name: " To download the file from web"
-        get_url:
-         url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=251646_7ed26d28139143f38c58992680c214a5
-         dest: "/tmp/downloadfile/"
 
 
 
