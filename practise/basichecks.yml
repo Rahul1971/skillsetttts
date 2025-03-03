@@ -1,6 +1,6 @@
 - name: "Install tomcat"
   hosts: 172.31.91.246
-  connection: local
+  #connection: local
   tasks:
 
     - name: "Install tomcat"
