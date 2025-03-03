@@ -10,7 +10,7 @@
 
       - name: "Print hostname"
         debug:
-          msg: "Hostname is {{x}}"
+          msg: "Hostname is {{x.stdout}}"
 
 
 
