@@ -10,14 +10,11 @@
       #failed_when: x.rc != 0 and x.stdout == ""
       #changed_when: false
 
-    - name: "Print the status"
-      debug:
-        msg: "status is {{x.stdout}}"
 
     - name: "Install tomcat"
       dnf:
        name: "tomcat"
-       state: latest
+       state: installed
 
     - name: "Start tomcat service"
       service:
@@ -28,9 +25,6 @@
       shell: "rpm -qa |grep -i tomcat"
       register: y
 
-    - name: "Print the status"
-      debug:
-        msg: "status is {{y.stdout}}"
 
        #"dnf module install tomcat:1.24 -y"
 
