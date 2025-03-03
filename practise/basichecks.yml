@@ -1,2 +1,22 @@
-- name: ""
+- name: "Install Ansible"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "To check ansible installed or not"
+      shell: "rpm -qa |grep -i ansible|wc -l"
+      register: x
+
+    - name: "Install ansible"
+      dnf:
+        name: ansible
+        state: installed
+        when: x.stdout != 0
+
+    - name: "Start ansible service"
+      service:
+        name: ansible
+        state: installed
+
+
+
 
