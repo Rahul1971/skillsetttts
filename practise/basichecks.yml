@@ -1,12 +1,15 @@
 - name: "Install Nginix"
   hosts: localhost
   tasks:
-    - name: "To check Nginix installed or not"
-      shell: "rpm -qa |grep -i nginix|wc -l"
-      register: x
-
     - name: "Install Nginix"
       shell: "dnf module install nginx:1.24 -y"
+
+    - name: "update yum"
+      dnf:
+        name: "*"
+        state: latest
+
+
       #dnf:
        # name: nginix
        # state: installed
