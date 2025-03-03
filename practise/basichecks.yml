@@ -1,6 +1,6 @@
 - name: "Check hostnames"
   hosts: all
-  #connection: local
+  connection: local
   become: true
   tasks:
 
