@@ -16,4 +16,4 @@
     - name: "Start Nginix service"
       service:
         name: nginix
-        state: installed
+        state: started
