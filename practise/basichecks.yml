@@ -4,7 +4,7 @@
   tasks:
 
     - name: " check tomcat status"
-      shell: "dnf list installed |grep -i tomcat"
+      shell: "rpm -qa |grep -i tomcat"
       register: x
 
     - name: "Print the status"
@@ -22,7 +22,7 @@
         state: started
 
     - name: " check tomcat status"
-      shell: "dnf list installed |grep -i tomcat"
+      shell: "rpm -qa |grep -i tomcat"
       register: y
 
     - name: "Print the status"
