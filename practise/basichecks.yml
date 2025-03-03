@@ -19,7 +19,7 @@
         url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=251646_7ed26d28139143f38c58992680c214a5
         src: "/tmp/downloadfile.gz"
 
-    - name: " unarchive the file
+    - name: "unarchive the file "
       unarchive:
         src: "/tmp/downloadfile.gz"
         dest: "/tmp/download/file"
