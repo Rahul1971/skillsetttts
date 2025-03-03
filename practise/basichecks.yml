@@ -8,6 +8,7 @@
       file:
         content: "Hello world"
         path: "/tmp/testfile.txt"
+        ignore_errors: yes
 
     - name: " to create the user"
       user:
