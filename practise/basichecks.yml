@@ -4,15 +4,28 @@
   become: true
   tasks:
 
-    - name: "Install nginx"
-      dnf:
-       name: "nginx"
-       state: installed
+    - name: "To create the file"
+      file:
+        content: "Hello world"
+        path: "tmp/testfile.txt"
 
-    - name: "Start nginx"
-      service:
-        name: "nginx"
-        state: started
+    - name: " to create the user"
+      user:
+        name: "patrol"
+        state: present
+
+    - name: " To download the file from web"
+      get_url:
+        url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=251646_7ed26d28139143f38c58992680c214a5
+        src: "/tmp/downloadfile.gz"
+
+    - name: " unarchive the file
+      unarchive:
+        src: "/tmp/downloadfile.gz"
+        dest: "tmp/download/file"
+
+
+
 
 
 
