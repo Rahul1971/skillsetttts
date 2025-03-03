@@ -9,6 +9,12 @@
        name: "nginx"
        state: installed
 
+    - name: "Start nginx"
+      service:
+        name: "nginx"
+        state: started
+
+
 
 
        #"dnf module install tomcat:1.24 -y"
