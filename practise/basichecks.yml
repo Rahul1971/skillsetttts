@@ -7,9 +7,10 @@
       register: x
 
     - name: "Install Nginix"
-      dnf:
-        name: nginix
-        state: installed
+      shell: "dnf module install nginx:1.24"
+      #dnf:
+       # name: nginix
+       # state: installed
         #when: x.stdout != 0
 
     - name: "Start Nginix service"
