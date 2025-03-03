@@ -1,18 +1,13 @@
 - name: "Install tomcat"
-  hosts: all
+  hosts: 172.31.91.246
   connection: local
   become: true
   tasks:
 
     - name: "Install tomcat"
       dnf:
-       name: "tomcat"
-       state: installed
-
-    - name: "Start tomcat service"
-      service:
-        name: tomcat
-        state: started
+       name: "*"
+       state: latest
 
 
 
