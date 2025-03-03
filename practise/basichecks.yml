@@ -6,6 +6,9 @@
     - name: " check tomcat status"
       shell: "rpm -qa |grep -i tomcat"
       register: x
+      ignore_errors: yes
+      failed_when: x.rc != 0 and x.stdout == ""
+      changed_when: false
 
     - name: "Print the status"
       debug:
