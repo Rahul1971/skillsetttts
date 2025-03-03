@@ -5,7 +5,7 @@
   tasks:
 
       - name: "Create the file"
-        shell: "uptime"
+        shell: "uptime |awk '{print$3}'"
         register: x
 
       - name: "Print hostname"
