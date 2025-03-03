@@ -4,11 +4,19 @@
   become: true
   tasks:
 
-    - name: "To create the file"
-      file:
-        content: "Hello world"
-        path: "/tmp/testfile.txt"
-        ignore_errors: yes
+    - name: "Create a file with content"
+      hosts: localhost
+      tasks:
+        - name: "Create the file"
+          file:
+            path: "/tmp/testfile.txt"
+            state: touch
+
+        - name: "Write content to the file"
+          copy:
+            content: "Hello world"
+            dest: "/tmp/testfile.txt"
+
 
     - name: " to create the user"
       user:
