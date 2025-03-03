@@ -7,7 +7,7 @@
     - name: "To create the file"
       file:
         content: "Hello world"
-        path: "tmp/testfile.txt"
+        path: "/tmp/testfile.txt"
 
     - name: " to create the user"
       user:
