@@ -1,10 +1,10 @@
-- name: "Install Nginx"
+- name: "Install tomcat"
   hosts: all
   connection: local
   tasks:
 
-    - name: " check nginx status"
-      shell: "rpm -qa |grep -i nginx"
+    - name: " check tomcat status"
+      shell: "rpm -qa |grep -i tomcat"
       register: x
       ignore_errors: yes
       #failed_when: x.rc != 0 and x.stdout == ""
@@ -14,25 +14,25 @@
       debug:
         msg: "status is {{x.stdout}}"
 
-    - name: "Install nginx"
+    - name: "Install tomcat"
       dnf:
-       name: "nginx"
+       name: "tomcat"
        state: latest
 
-    - name: "Start nginx service"
+    - name: "Start tomcat service"
       service:
-        name: nginx
+        name: tomcat
         state: started
 
-    - name: " check nginx status"
-      shell: "rpm -qa |grep -i nginx"
+    - name: " check tomcat status"
+      shell: "rpm -qa |grep -i tomcat"
       register: y
 
     - name: "Print the status"
       debug:
         msg: "status is {{y.stdout}}"
 
-       #"dnf module install nginx:1.24 -y"
+       #"dnf module install tomcat:1.24 -y"
 
    # - name: "update yum"
    #   dnf:
