@@ -1,4 +1,4 @@
-- name: "Install tomcat"
+- name: "Check hostnames"
   hosts: all
   #connection: local
   become: true
