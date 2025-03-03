@@ -1,6 +1,5 @@
 - name: "Install Nginix"
   hosts: localhost
-  connection: local
   tasks:
     - name: "To check Nginix installed or not"
       shell: "rpm -qa |grep -i nginix|wc -l"
